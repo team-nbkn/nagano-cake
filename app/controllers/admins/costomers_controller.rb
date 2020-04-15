@@ -1,4 +1,7 @@
 class Admins::CostomersController < ApplicationController
+
+  layout 'admins'
+
   def show
   end
 
