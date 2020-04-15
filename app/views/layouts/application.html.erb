@@ -8,8 +8,52 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+
+
+
+  <header>
+    <div class="navbar navbox">
+      <div class="container">
+        <nav class="nav nav-c navbar-left">
+          <a href="" class="navbar-brand"></a>
+        </nav>
+        <nav>
+        <ul class="nav navbar-nav navbar-right">
+
+                <li>
+                  <a href="" class="btn-sm btn-danger">リンク</a>
+                </li>
+                <li>
+                  <a href="" class="btn-sm btn-danger">リンク</a>
+                </li>
+                <li>
+                  <a href="" class="btn-sm btn-danger">リンク</a>
+                </li>
+                <li>
+                  <a href="" class="btn-sm btn-danger">リンク</a>
+                </li>
+        </ul>
+
+        </nav>
+      </div>
+    </div>
+  </header>
+
+
+
+  <div class="container">
     <%= yield %>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-3 col-xs-offset-9">
+          <p class="footer-text">Nagano Cake</p>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>

@@ -1,0 +1,2 @@
+module Costomers::ShippingsHelper
+end
