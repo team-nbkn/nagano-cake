@@ -34,14 +34,14 @@ Rails.application.routes.draw do
 
   namespace :admins do
 
-    resource :costomers, only: [:show, :edit, :update, :index]
+    resources :costomers, only: [:show, :edit, :update, :index]
     get '/top' => 'costomers#top'
 
     resources :products, only: [:create, :update, :edit, :index, :show]
 
     resources :categories, only: [:index, :edit, :create, :update]
 
-    resources :order_infomations, only: [:index, :show, :update]
+    resources :order_informations, only: [:index, :show, :update]
 
   end
 

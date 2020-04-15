@@ -16,36 +16,28 @@
     <div class="navbar navbox">
       <div class="container">
         <nav class="nav nav-c navbar-left">
-          <a href="" class="navbar-brand"></a>
+          <%= link_to admins_top_path do %>
+            <div class="navbar-brand"></div>
+          <% end %>
         </nav>
         <nav>
         <ul class="nav navbar-nav navbar-right">
 
             <% if admin_signed_in? %>
                 <li>
-                  <a href="" class="btn-sm btn-danger">リンク</a>
+                  <%= link_to '商品一覧', admins_products_path, class: "btn-sm btn-danger" %>
                 </li>
                 <li>
-                  <a href="" class="btn-sm btn-danger">リンク</a>
+                  <%= link_to '会員一覧', admins_costomers_path, class: "btn-sm btn-danger" %>
                 </li>
                 <li>
-                  <a href="" class="btn-sm btn-danger">リンク</a>
+                  <%= link_to '注文履歴一覧', admins_order_informations_path, class: "btn-sm btn-danger" %>
                 </li>
                 <li>
-                  <a href="" class="btn-sm btn-danger">リンク</a>
-                </li>
-            <% else %>
-                <li>
-                  <a href="" class="btn-sm btn-danger">リンク</a>
+                  <%= link_to 'ジャンル検索', admins_categories_path, class: "btn-sm btn-danger" %>
                 </li>
                 <li>
-                  <a href="" class="btn-sm btn-danger">リンク</a>
-                </li>
-                <li>
-                  <a href="" class="btn-sm btn-danger">リンク</a>
-                </li>
-                <li>
-                  <a href="" class="btn-sm btn-danger">リンク</a>
+                  <%= link_to 'ログアウト', destroy_admin_session_path, :method => :delete, class: "btn-sm btn-danger"  %>
                 </li>
             <% end %>
 
