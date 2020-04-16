@@ -1,6 +1,6 @@
 class OrderInformation < ApplicationRecord
 
-  belong_to :costomer
+  belongs_to :costomer
   has_many :order_products
 
   validates :payment_method, presence: true

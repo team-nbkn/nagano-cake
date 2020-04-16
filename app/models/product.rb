@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
 
-  belong_to :admin
-  belong_to :category
+  belongs_to :category
   has_many :cart_items
   has_one :order_product
 

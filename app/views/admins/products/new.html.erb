@@ -1,0 +1,31 @@
+<h1>商品新規登録画面</h1>
+<div class="row">
+	<%= form_for [:admins, @product] do |ca| %>
+	<div class="col-xs-3">
+		<%= ca.attachment_field :image, class: "btn btn-primary" %>
+	</div>
+	<div class="col-xs-6">
+	  <div class="field">
+        <label for="product_name">商品名</label>
+        <%= ca.text_field :name %>
+      </div>
+      <div class="field">
+        <label for="product_body">商品説明</label>
+        <%= ca.text_area :content %>
+      </div>
+      <div class="field">
+        <label for="product_category">ジャンル</label>
+          <%= ca.select :category_id, Category.all.collect{ |c| [ c.name, c.id]} %>
+      </div>
+      <div class="field">
+      <label for="product_price">税抜価格</label>
+        <%= ca.text_field :price %>円
+      </div>
+      <div class="field">
+      <label for="product_status">販売ステータス</label>
+        <%= ca.select :status, [['販売中止', 0], ['販売中', 1]],{ class: "status"} %>
+      </div>
+      <%= ca.submit "新規登録" %>
+	</div>
+	<% end %>
+</div>
