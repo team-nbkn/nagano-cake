@@ -11,4 +11,7 @@ class Admins::CostomersController < ApplicationController
   def update
   end
 
+  def top
+  end
+
 end
