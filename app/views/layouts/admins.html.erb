@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GithubWork</title>
+    <title>Admins-GithubWork</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,6 +21,7 @@
         <nav>
         <ul class="nav navbar-nav navbar-right">
 
+            <% if admin_signed_in? %>
                 <li>
                   <a href="" class="btn-sm btn-danger">リンク</a>
                 </li>
@@ -33,6 +34,21 @@
                 <li>
                   <a href="" class="btn-sm btn-danger">リンク</a>
                 </li>
+            <% else %>
+                <li>
+                  <a href="" class="btn-sm btn-danger">リンク</a>
+                </li>
+                <li>
+                  <a href="" class="btn-sm btn-danger">リンク</a>
+                </li>
+                <li>
+                  <a href="" class="btn-sm btn-danger">リンク</a>
+                </li>
+                <li>
+                  <a href="" class="btn-sm btn-danger">リンク</a>
+                </li>
+            <% end %>
+
         </ul>
 
         </nav>
