@@ -3,8 +3,13 @@ class Costomers::ProductsController < ApplicationController
   layout 'costomers'
 
   def index
-     # @categories = Category.all
-     # @products = Product.all
+    @categories = Category.all
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+      @products = @category.products.all
+    else
+      @products = Product.all
+    end
   end
 
   def show

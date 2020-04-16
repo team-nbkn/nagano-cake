@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resource :costomers
 
     get 'products/top' => 'products#top'
-    resources :products, only: [:index, :show]
+    resources :products, only: [:index, :show], param: :id
 
     resources :cart_items, only: [:show, :create, :update, :destroy]
     delete 'cart_items' => 'cart_items#all_destroy'
