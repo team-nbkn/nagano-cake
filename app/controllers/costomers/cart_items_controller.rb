@@ -1,4 +1,6 @@
 class Costomers::CartItemsController < ApplicationController
+  layout 'costomers'
+
   def show
   end
 

@@ -1,4 +1,7 @@
 class Costomers::OrderInfomationsController < ApplicationController
+
+  layout 'costomers'
+
   def new
   end
 

@@ -1,4 +1,7 @@
 class Costomers::ShippingsController < ApplicationController
+
+  layout 'costomers'
+
   def index
   end
 
