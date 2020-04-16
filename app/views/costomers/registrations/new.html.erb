@@ -4,6 +4,27 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "名前（性）" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "名前（名）" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_kana_name %>
+    <%= f.text_field :first_kana_name, autofocus: true, autocomplete: "フリガナ（セイ）" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_kana_name %>
+    <%= f.text_field :last_kana_name, autofocus: true, autocomplete: "フリガナ（メイ）" %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
