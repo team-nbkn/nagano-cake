@@ -1,4 +1,7 @@
 class Costomers::CostomersController < ApplicationController
+
+  layout 'costomers'
+
   def show
   end
 

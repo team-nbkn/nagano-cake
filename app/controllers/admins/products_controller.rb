@@ -1,4 +1,7 @@
 class Admins::ProductsController < ApplicationController
+
+  layout 'admins'
+
   def edit
   end
 

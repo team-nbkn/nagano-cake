@@ -1,4 +1,7 @@
 class Admins::OrderInformationsController < ApplicationController
+
+  layout 'admins'
+
   def index
   end
 
