@@ -34,7 +34,9 @@ Rails.application.routes.draw do
 
   namespace :admins do
 
+    resources :costomers, only: [:show, :edit, :update, :index]
     get '/top' => 'costomers#top'
+
     resources :costomers, only: [:show, :edit, :update, :index]
 
     resources :products, only: [:create, :update, :edit, :index, :show]

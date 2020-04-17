@@ -21,27 +21,20 @@
         <nav>
         <ul class="nav navbar-nav navbar-right">
             <% if costomer_signed_in? %>
-                <li>
-                  <a href="" class="btn-sm btn-danger"><%= link_to ' マイページ',costomers_costomers_path %></a>
+                <li class=""><%= link_to ' マイページ', costomers_costomers_path, class:"btn-sm btn-danger" %>
                 </li>
-                <li>
-                  <a href="" class="btn-sm btn-danger"><%= link_to ' 商品一覧', costomers_products_path %></a>
+                <li class=""><%= link_to ' 商品一覧', costomers_products_path, class:"btn-sm btn-danger" %>
                 </li>
-                <li>
-                  <a href="" class="btn-sm btn-danger"><%= link_to ' カート', costomers_cart_item_path %></a>
+                <li class=""><%= link_to ' カート', costomers_cart_item_path, class:"btn-sm btn-danger" %>
                 </li>
-                <li>
-                  <a href="" class="btn-sm btn-danger"><%= link_to " ログアウト", destroy_costomer_session_path, method: :delete %></a>
+                <li class=""><%= link_to " ログアウト", destroy_costomer_session_path, method: :delete, class:"btn-sm btn-danger" %>
                 </li>
             <% else %>
-                <li>
-                  <a href="" class="btn-sm btn-danger"><%= link_to ' 商品一覧', costomers_products_path %></a>
+                <li class=""><%= link_to ' 商品一覧', costomers_products_path, class:"btn-sm btn-danger" %>
                 </li>
-                <li>
-                  <a href="" class="btn-sm btn-danger"><%= link_to " 新規登録", new_costomer_registration_path %></a>
+                <li class=""><%= link_to " 新規登録", new_costomer_registration_path, class:"btn-sm btn-danger" %>
                 </li>
-                <li>
-                  <a href="" class="btn-sm btn-danger"><%= link_to " ログイン", new_costomer_session_path %></a>
+                <li class=""><%= link_to " ログイン", new_costomer_session_path, class:"btn-sm btn-danger" %>
                 </li>
             <% end %>
         </ul>
