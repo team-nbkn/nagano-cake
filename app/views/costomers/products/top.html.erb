@@ -1,2 +1,57 @@
-<h1>Costomers::Products#top</h1>
-<p>Find me in app/views/costomers/products/top.html.erb</p>
+<div class='body'>
+<div class="container">
+
+<div class="row">
+<!-- ジャンル検索 -->
+	<div class="col-xs-3" >
+		<div class="categories">
+			<table>
+				<caption>ジャンル検索</caption>
+				<tbody>
+					<% @categories.each do |category| %>
+						<tr>
+							<td><%= link_to category.name, costomers_products_path %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+<!-- 商品一覧 -->
+	<div class="col-xs-9">
+		<table class="table">
+			<caption>
+				ようこそ、NaganoCakeへ！
+				このサイトは、ケーキ販売のECサイトになります。
+				会員でない方も商品の閲覧はできますが、
+				購入には会員登録が必要になります。
+			</caption>
+			<thead>
+				<tr>
+					<th>オススメ商品</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @products.each do |product| %>
+					<tr>
+						<td>
+							<%= attachment_image_tag @product, :image, :fill, 20, 20, format: 'jpeg', class: "img-circle pull-left profile-img" %>
+							<%= link_to @name, costomers_product_path(product_id) %>
+						</td>
+						<td><%= link_to product.name, costomers_product_path(product.id) %>
+						</td>
+						<td><%= link_to product.price, costomers_product_path(product.id) %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+
+	</div>
+
+</div>
+</div>
+</div>

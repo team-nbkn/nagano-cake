@@ -1,6 +1,6 @@
 class OrderProduct < ApplicationRecord
 
-  belong_to :order_infomation
-  belong_to :product
+  belongs_to :order_infomation
+  belongs_to :product
 
 end
