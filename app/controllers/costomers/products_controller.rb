@@ -3,12 +3,18 @@ class Costomers::ProductsController < ApplicationController
   layout 'costomers'
 
   def index
+     # @categories = Category.all
+     # @products = Product.all
   end
 
   def show
+     # @categories = Category.all
+     # @product = Product.find(params[:id])
   end
 
   def top
+      @categories = Category.all
+      @products = Product.all
   end
 
   private

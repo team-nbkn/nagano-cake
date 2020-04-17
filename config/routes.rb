@@ -14,28 +14,28 @@ Rails.application.routes.draw do
 
   namespace :costomers do
 
-    resource :costomers
     patch 'costomers/withdraw' => 'costomers#d_update'
+    resource :costomers
 
-    resources :products, only: [:index, :show]
     get 'products/top' => 'products#top'
+    resources :products, only: [:index, :show]
 
     resources :cart_items, only: [:show, :create, :update, :destroy]
     delete 'cart_items' => 'cart_items#all_destroy'
 
     resources :shippings, only: [:index, :edit, :create, :update, :destroy]
 
-    resources :order_infomations, only: [:new, :create, :index, :show]
     get 'order_infomations/confirm' => 'order_infomations#confirm'
     get 'order_infomations/thank' => 'order_infomations#thank'
+    resources :order_infomations, only: [:new, :create, :index, :show]
 
   end
 
 
   namespace :admins do
 
-    resources :costomers, only: [:show, :edit, :update, :index]
     get '/top' => 'costomers#top'
+    resources :costomers, only: [:show, :edit, :update, :index]
 
     resources :products, only: [:create, :update, :edit, :index, :show]
 
