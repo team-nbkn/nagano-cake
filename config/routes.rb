@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   namespace :costomers do
 
-    patch 'costomers/withdraw' => 'costomers#d_update'
+    get 'costomers/withdraw/:id' => 'costomers#withdraw'
     resource :costomers
 
     get 'products/top' => 'products#top'

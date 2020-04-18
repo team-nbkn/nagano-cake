@@ -1,5 +1,7 @@
 <h2>マイページ</h2>
 
+<p><%= flash[:notice] %></p>
+
 <p>登録情報<%= link_to "編集する", edit_costomers_costomers_path, class: "btn-sm btn-primary"%>
 <%= link_to "パスワードを変更する", edit_costomer_password_path, class: "btn-sm btn-primary" %></p>
 
