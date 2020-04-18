@@ -1,0 +1,7 @@
+<h1>本当に退会しますか？</h1>
+<p>退会すると、会員登録情報や<br>これまでの購入履歴が閲覧できなくなります。<br>退会する場合は、「退会する」をクリックしてください。</p>
+
+<div class="actions">
+	<%= link_to "退会する", costomers_costomers_path, method: :delete, class: "btn-sm btn-primary btn-block" %>
+    <%= link_to "退会しない", costomers_costomers_path(@costomer), class: "btn-sm btn-danger btn-block" %>
+</div>

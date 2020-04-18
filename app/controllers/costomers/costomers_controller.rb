@@ -11,9 +11,23 @@ class Costomers::CostomersController < ApplicationController
   end
 
   def update
+    @costomer = current_costomer
+
+    if @costomer.update(costomer_params)
+       flash[:notice] = "successfully updated."
+       redirect_to costomers_costomers_path(@costomer.id)
+    else
+       render("costomers/edit")
+    end
   end
 
-  def new
+  def withdraw
+  end
+
+  def destroy
+    @costomer = current_costomer
+    @costomer.discard
+    redirect_to costomers_products_top_path
   end
 
   private

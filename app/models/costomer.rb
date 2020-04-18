@@ -15,4 +15,7 @@ class Costomer < ApplicationRecord
   validates :postcode, presence: true
   validates :address, presence: true
   validates :phone, presence: true
+
+  include Discard::Model
+  default_scope -> { kept }
 end
