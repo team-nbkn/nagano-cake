@@ -26,7 +26,7 @@
                    	<%= pr.id %>
                    </td>
                    <td>
-            	     <%= pr.name %>
+            	     <%= link_to pr.name, admins_product_path(pr.id) %>
                    </td>
                    <td>
                    	<%= pr.price %>

@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_one :order_product
 
   attachment :image
+  enum status: { 販売中: 1, 販売中止: 0 }
 
   validates :name, presence: true
   validates :content, presence: true
