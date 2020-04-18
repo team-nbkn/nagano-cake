@@ -13,8 +13,8 @@ class Costomers::ProductsController < ApplicationController
   end
 
   def show
-     # @categories = Category.all
-     # @product = Product.find(params[:id])
+     @categories = Category.all
+     @product = Product.find(params[:id])
   end
 
   def top
