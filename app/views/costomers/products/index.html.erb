@@ -10,7 +10,7 @@
 				<tbody>
 					<% @categories.each do |category| %>
 						<tr>
-							<td><%= link_to category.name, costomers_products_path %>
+							<td><%= link_to category.name, costomers_products_path(category_id: category.id) %>
 							</td>
 						</tr>
 					<% end %>
@@ -21,10 +21,14 @@
 
 <!-- 商品一覧 -->
 	<div class="col-xs-9">
+
+<!-- ifで条件分岐 -->
+<% if params[:category_id] %>
+<!-- ジャンル一覧の場合 -->
 		<table class="table">
 			<thead>
 				<tr>
-					<th>商品一覧</th>
+					<th><h2><strong><%= @category.name %> 一覧</strong></h2></th>
 					<th>
         				<p class="product-count">(全<%= @products.count %>件)</p>
   					</th>
@@ -36,7 +40,6 @@
 					<tr>
 						<td>
 							<%= attachment_image_tag @product, :image, :fill, 20, 20, format: 'jpeg', class: "img-circle pull-left profile-img" %>
-							<%= link_to @name, costomers_product_path(product_id) %>
 						</td>
 						<td><%= link_to product.name, costomers_product_path(product.id) %>
 						</td>
@@ -46,7 +49,34 @@
 				<% end %>
 			</tbody>
 		</table>
-
+<!-- else -->
+<% else %>
+<!-- 全商品一覧 -->
+		<table class="table">
+			<thead>
+				<tr>
+					<th><h2><strong>商品一覧</strong></h2></th>
+					<th>
+        				<p class="text-left">(全<%= @products.count %>件)</p>
+  					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @products.each do |product| %>
+					<tr>
+						<td>
+							<%= attachment_image_tag @product, :image, :fill, 20, 20, format: 'jpeg', class: "img-circle pull-left profile-img" %>
+						</td>
+						<td><%= link_to product.name, costomers_product_path(product.id) %>
+						</td>
+						<td><%= link_to product.price, costomers_product_path(product.id) %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+<% end %>
+<!-- 一覧 -->
 	</div>
 
 </div>
