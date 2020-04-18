@@ -1,2 +1,35 @@
-<h1>Admins::Products#edit</h1>
-<p>Find me in app/views/admins/products/edit.html.erb</p>
+<h1>商品　編集画面</h1>
+
+<div class="row">
+   <%= form_for [:admins, @product] do |pr| %>
+	<div class="col-xs-3">
+		<%= attachment_image_tag @product, :image, :fill, 200, 160, fallback: "no_image.jpg" %>
+		<%= pr.attachment_field :image, class: "btn btn-primary" %>
+	</div>
+	<div class="col-xs-6">
+	  <div class="field">
+        <label for="product_name">商品名</label>
+        <%= pr.text_field :name %>
+      </div>
+      <div class="field">
+        <label for="product_body">商品説明</label>
+        <%= pr.text_area :content %>
+      </div>
+      <div class="field">
+        <label for="product_category">ジャンル</label>
+          <%= pr.select :category_id, Category.all.collect{ |c| [ c.name, c.id]} %>
+      </div>
+      <div class="field">
+      <label for="product_price">税抜価格</label>
+        <%= pr.text_field :price %>円
+      </div>
+      <div class="field">
+      <label for="product_status">販売ステータス</label>
+        <%= pr.select :status, ['販売中止', '販売中'],{ class: "status"} %>
+      </div>
+
+      <%= pr.submit "変更を保存" %>
+
+	</div>
+   <% end %>
+</div>

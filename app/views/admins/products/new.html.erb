@@ -2,6 +2,7 @@
 <div class="row">
 	<%= form_for [:admins, @product] do |ca| %>
 	<div class="col-xs-3">
+    <%= attachment_image_tag @product, :image, :fill, 200, 160, fallback: "no_image.jpg" %>
 		<%= ca.attachment_field :image, class: "btn btn-primary" %>
 	</div>
 	<div class="col-xs-6">
@@ -23,7 +24,7 @@
       </div>
       <div class="field">
       <label for="product_status">販売ステータス</label>
-        <%= ca.select :status, [['販売中止', 0], ['販売中', 1]],{ class: "status"} %>
+        <%= ca.select :status, ['販売中止', '販売中'],{ class: "status"} %>
       </div>
       <%= ca.submit "新規登録" %>
 	</div>
