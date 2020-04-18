@@ -6,11 +6,11 @@
 	<div class="col-xs-3" >
 		<div class="categories">
 			<table>
-				<caption>ジャンル検索</caption>
+				<caption><strong>ジャンル検索</strong></caption>
 				<tbody>
 					<% @categories.each do |category| %>
 						<tr>
-							<td><%= link_to category.name, costomers_products_path %>
+							<td><%= link_to category.name, costomers_products_path(category_id: category.id) %>
 							</td>
 						</tr>
 					<% end %>
@@ -23,14 +23,14 @@
 	<div class="col-xs-9">
 		<table class="table">
 			<caption>
-				ようこそ、NaganoCakeへ！
-				このサイトは、ケーキ販売のECサイトになります。
-				会員でない方も商品の閲覧はできますが、
+				ようこそ、NaganoCakeへ！<br>
+				このサイトは、ケーキ販売のECサイトになります。<br>
+				会員でない方も商品の閲覧はできますが、<br>
 				購入には会員登録が必要になります。
 			</caption>
 			<thead>
 				<tr>
-					<th>オススメ商品</th>
+					<th><h2><strong>オススメ商品</strong><h2></th>
 				</tr>
 			</thead>
 
@@ -39,7 +39,6 @@
 					<tr>
 						<td>
 							<%= attachment_image_tag @product, :image, :fill, 20, 20, format: 'jpeg', class: "img-circle pull-left profile-img" %>
-							<%= link_to @name, costomers_product_path(product_id) %>
 						</td>
 						<td><%= link_to product.name, costomers_product_path(product.id) %>
 						</td>
@@ -49,6 +48,8 @@
 				<% end %>
 			</tbody>
 		</table>
+
+		<p class="text-right"><%= link_to "もっと見る>", costomers_products_path %></p>
 
 	</div>
 
