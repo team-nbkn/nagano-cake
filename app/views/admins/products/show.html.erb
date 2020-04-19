@@ -1,4 +1,6 @@
-<h1>商品 詳細画面</h1>
+<div class="row">
+   <h2><strong>商品 詳細画面</strong></h2><br>
+</div>
 <div class="row">
 	<div class="col-xs-3">
 		<%= attachment_image_tag @product, :image, :fill, 200, 160, fallback: "no_image.jpg" %>
@@ -17,8 +19,9 @@
           <%= @product.category.name %>
       </div>
       <div class="field">
-      <label for="product_price">税抜価格</label>
-        <%= @product.price %>円
+      <label for="product_price">税込価格(税抜価格)</label>
+        <%= (@product.price * 1.1).to_i %>
+        (<%= @product.price %>) 円
       </div>
       <div class="field">
       <label for="product_status">販売ステータス</label>
