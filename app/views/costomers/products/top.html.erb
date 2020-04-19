@@ -38,7 +38,7 @@
 				<% @products.each do |product| %>
 					<tr>
 						<td>
-							<%= attachment_image_tag product, :image, :fill, 60, 60, format: 'jpeg', class: "pull-left profile-img"  %>
+							<%= attachment_image_tag product, :image, :fill, 60, 60, format: 'jpeg', class: "pull-left"  %>
 						</td>
 						<td><%= link_to product.name, costomers_product_path(product.id) %>
 						</td>
