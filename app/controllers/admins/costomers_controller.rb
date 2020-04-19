@@ -15,8 +15,7 @@ class Admins::CostomersController < ApplicationController
   end
 
   def top
-    # @order_information=OrderInformation.where(create_at: Date.today)
-        # @admins_count=Admin.where(admin_id: @admin.id).count
+    @order_information = OrderInformation.where(created_at: 1.day.ago.all_day)
   end
 
   private
@@ -24,4 +23,3 @@ class Admins::CostomersController < ApplicationController
       params.require(:costomer).permit(:first_name, :last_name,  :first_kana_name, :last_kana_name, :postcode, :address, :phone, :status, :email, :password, :password_confirmation)
     end
 end
-  

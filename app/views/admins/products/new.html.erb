@@ -1,4 +1,4 @@
-<h1>商品新規登録画面</h1>
+<h2><strong>商品 新規登録画面</strong></h2><br>
 <div class="row">
 	<%= form_for [:admins, @product] do |ca| %>
 	<div class="col-xs-3">
@@ -26,7 +26,7 @@
       <label for="product_status">販売ステータス</label>
         <%= ca.select :status, ['販売中止', '販売中'],{ class: "status"} %>
       </div>
-      <%= ca.submit "新規登録" %>
+      <%= ca.submit "新規登録", class: "btn btn-primary" %>
 	</div>
 	<% end %>
 </div>
