@@ -12,5 +12,5 @@
   <p>電話番号<%= @costomer.phone %></p>
   <p>メールアドレス<%= @costomer.email %></p>
 
-  <p>配送先<%= link_to "一覧を見る", costomers_shippings_path(@costomer), class: "btn-sm btn-primary" %></p>
+  <p>配送先<%= link_to "一覧を見る", costomers_shippings_path(@costomer.id), class: "btn-sm btn-primary" %></p>
   <p>注文履歴<%= link_to "一覧を見る", costomers_order_infomations_path(@costomer), class: "btn-sm btn-primary" %></p>
