@@ -1,2 +1,73 @@
-<h1>Admins::OrderInformations#show</h1>
-<p>Find me in app/views/admins/order_informations/show.html.erb</p>
+<div class="row">
+   <h2><strong>注文詳細画面</strong></h2><br>
+</div>
+<!-- 購入者情報 -->
+<div class="row">
+	<div class="col-xs-10">
+	  <div class="field">
+        <label for="product_name">購入者</label>
+        <%= @order_information.name %>
+      </div>
+      <div class="field">
+        <label for="product_body">配送先</label>
+        <%= @order_information.postcode %>
+        <%= @order_information.address %>
+        <%= @order_information.name %>
+      </div>
+      <div class="field">
+        <label for="product_category">支払方法</label>
+          <%= @order_information.payment_method %>
+      </div>
+      <%= form_for [:admins, @order_information] do |f| %>
+        <div class="field">
+          <label for="product_price">注文ステータス</label>
+            <%= f.select :status, ['入金待ち', '入金確認', '製作中', '発送準備中', '発送済み'],{ class: "status"} %>
+        </div>
+        <%= f.submit "更新", class: "btn btn-primary" %>
+      <% end %>
+	</div>
+</div>
+<!-- 購入者情報ここまで -->
+<!-- 注文商品 -->
+    <div class="row">
+
+        <div class="col-xs-11">
+
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th>商品名</th>
+                <th>単価(税込)</th>
+                <th>数量</th>
+                <th>小計</th>
+                <th>制作ステータス</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @order_informations.each do |pr| %>
+                <tr>
+                   <td>
+                   	<%= pr.name %>
+                   </td>
+                   <td>
+            	    <%= pr.order_product.price %>
+                   </td>
+                   <td>
+                   	<%= pr.order_product.quantity %>
+                   </td>
+                   <td>
+                   	(<%= pr.order_product.price * pr.order_product.quantity %>).to_i
+                   </td>
+                   <td>
+                   	<%= form_for [:admins, @order_information] do |f| %>
+                   	  <%= f.order_product.select :status, ['着手不可', '制作待ち', '製作中', '制作完了'],{ class: "status"} %>
+                   	  <%= f.submit "更新", class: "btn btn-primary" %>
+                   	<% end %>
+                   </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
