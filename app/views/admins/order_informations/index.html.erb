@@ -9,7 +9,7 @@
     	</div>
 
         <div class="col-xs-11">
-
+          <!-- すべての注文履歴 -->
           <table class="table table-hover table-inverse">
             <thead>
               <tr>
@@ -39,5 +39,72 @@
               <% end %>
             </tbody>
           </table>
+          <!-- ここまで -->
+          <!-- 個人の注文履歴 -->
+         <% if params[:costomer_id] %>
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th>購入日時</th>
+                <th>購入者</th>
+                <th>注文個数</th>
+                <th>注文ステータス</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @order_informations.each do |f| %>
+                <tr>
+                   <td>
+                    <%= f.created_at %>
+                   </td>
+                   <td>
+                   <%= f.name %>
+                   </td>
+                   <td>
+                    <%= f.order_product.quantity %>
+                   </td>
+                   <td>
+                    <%= f.status %>
+                   </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+         <% end %>
+          <!-- ここまで -->
+          <!-- 1日の注文履歴 -->
+          <% if params[created_at: 1.day.ago.all_day] %>
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th>購入日時</th>
+                <th>購入者</th>
+                <th>注文個数</th>
+                <th>注文ステータス</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @order_informations.each do |f| %>
+                <tr>
+                   <td>
+                    <%= f.created_at %>
+                   </td>
+                   <td>
+                   <%= f.name %>
+                   </td>
+                   <td>
+                    <%= f.order_product.quantity %>
+                   </td>
+                   <td>
+                    <%= f.status %>
+                   </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+         <% end %>
+          <!-- ここまで -->
         </div>
     </div>
