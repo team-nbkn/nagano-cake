@@ -20,12 +20,13 @@ Rails.application.routes.draw do
     get 'products/top' => 'products#top'
     resources :products, only: [:index, :show], param: :id
 
-    resources :cart_items, only: [:show, :create, :update, :destroy]
     delete 'cart_items' => 'cart_items#all_destroy'
+    resources :cart_items, only: [:show, :create, :update, :destroy]
 
     resources :shippings, only: [:index, :edit, :create, :update, :destroy]
 
     get 'order_infomations/confirm' => 'order_infomations#confirm'
+    post 'order_infomations/confirm' => 'order_infomations#create'
     get 'order_infomations/thank' => 'order_infomations#thank'
     resources :order_infomations, only: [:new, :create, :index, :show]
 

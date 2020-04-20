@@ -4,6 +4,11 @@ class Costomers::CartItemsController < ApplicationController
   def show
     @cart_items = CartItem.where(costomer_id: current_costomer.id)
     @products = Product.all
+    array = []
+    @cart_items.each do |cart_item|
+      array << cart_item.product.price * cart_item.order_quantity
+    end
+    @total = array.sum
   end
 
   def create
@@ -28,8 +33,8 @@ class Costomers::CartItemsController < ApplicationController
 
   def all_destroy
     @cart_items = CartItem.all
-    @cart_items.destroy
-    redirect_to costomers_cart_item_path(@cart_item.id)
+    @cart_items.destroy_all
+    redirect_to costomers_products_top_path
   end
 
   private
