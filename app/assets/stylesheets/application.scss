@@ -40,8 +40,9 @@
 	width: 100%;
 	background-color: #f08080;
 	bottom: 0;
-	position: absolute;
 	height: 60px;
+	position: fixed;
+	margin-bottom: 0;
 }
 .footer-text {
 	color: white;
@@ -50,6 +51,11 @@
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+}
+body {
+	margin-bottom: 60px;
+	padding-bottom: 0;
+	padding-top: 110px;
 }
 /*application.scss適用　　ヘッダーandフッター ここまで*/
 
