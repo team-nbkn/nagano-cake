@@ -6,7 +6,7 @@ class Costomer < ApplicationRecord
 
   has_many :shippings
   has_many :order_informations
-  has_one :cart_item
+  has_one :cart_item, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true

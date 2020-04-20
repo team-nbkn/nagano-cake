@@ -3,6 +3,8 @@ class Costomers::OrderInfomationsController < ApplicationController
   layout 'costomers'
 
   def new
+    @order_information = OrderInformation.new
+    @costomer = current_costomer
   end
 
   def confirm
