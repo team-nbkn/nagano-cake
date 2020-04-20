@@ -1,2 +1,80 @@
-<h1>Admins::Costomers#show</h1>
-<p>Find me in app/views/admins/costomers/show.html.erb</p>
+<h2><strong>会員詳細画面</strong></h2><br>
+<div class="row">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-11">
+
+    <div class="form-group row">
+      <label for="ID" class="col-sm-2 col-form-label">顧客ID</label>
+      <div class="col-sm-10">
+        <div class="col-sm-1">
+          <%= @costomer.id %>
+        </div>
+        <div class="col-xs-5">
+          <% if @costomer.discarded_at == nil %>
+            <%if @costomer.status == nil %>
+                有効
+            <% else %>
+                <%= @costomer.status %>
+            <% end %>
+          <% else %>
+            退会済
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">氏名</label>
+      <div class="col-sm-10">
+  	    <%= @costomer.first_name %><%= @costomer.last_name %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">フリガナ</label>
+      <div class="col-sm-10">
+        <%= @costomer.first_kana_name %><%= @costomer.last_kana_name %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="postcode" class="col-sm-2 col-form-label">郵便番号</label>
+      <div class="col-sm-10">
+        <%= @costomer.postcode %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="adress" class="col-sm-2 col-form-label">住所</label>
+      <div class="col-sm-10">
+        <%= @costomer.address %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="phone" class="col-sm-2 col-form-label">電話番号</label>
+      <div class="col-sm-10">
+        <%= @costomer.phone %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">メールアドレス</label>
+      <div class="col-sm-10">
+        <%= @costomer.email %>
+      </div>
+    </div>
+    <br>
+
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <%= link_to "編集する", edit_admins_costomer_path(@costomer.id), class: "btn btn-primary"  %>
+      </div>
+      <div class="col-sm-8">
+        <%= link_to "注文履歴一覧", admins_order_informations_path, class: "btn btn-primary"  %>
+    </div>
+    </div>
+  </div>
+
+</div>

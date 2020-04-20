@@ -3,15 +3,21 @@ class Admins::CostomersController < ApplicationController
   layout 'admins'
 
   def show
+    @costomer = Costomer.find(params[:id])
   end
 
   def edit
+    @costomer = Costomer.find(params[:id])
   end
 
   def index
+    @costomers = Costomer.with_discarded
   end
 
   def update
+    @costomer = Costomer.find(params[:id])
+    @costomer.update(costomer_params)
+    redirect_to admins_costomer_path(@costomer.id)
   end
 
   def top

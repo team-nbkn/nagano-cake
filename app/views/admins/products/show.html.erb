@@ -5,30 +5,42 @@
 	<div class="col-xs-3">
 		<%= attachment_image_tag @product, :image, :fill, 200, 160, fallback: "no_image.jpg" %>
 	</div>
-	<div class="col-xs-6">
-	  <div class="field">
-        <label for="product_name">商品名</label>
-        <%= @product.name %>
+	<div class="col-xs-8">
+	  <div class="form-group row">
+          <label for="product" class="col-sm-3 col-form-label">商品名</label>
+        <div class="col-sm-9">
+          <%= @product.name %>
+        </div>
+    </div>
+    <div class="form-group row">
+          <label for="product_body" class="col-sm-3 col-form-label">商品説明</label>
+        <div class="col-sm-9">
+          <%= @product.content %>
       </div>
-      <div class="field">
-        <label for="product_body">商品説明</label>
-        <%= @product.content %>
-      </div>
-      <div class="field">
-        <label for="product_category">ジャンル</label>
+    </div>
+    <div class="form-group row">
+          <label for="product_category" class="col-sm-3 col-form-label">ジャンル</label>
+        <div class="col-sm-9">
           <%= @product.category.name %>
-      </div>
-      <div class="field">
-      <label for="product_price">税込価格(税抜価格)</label>
-        <%= (@product.price * 1.1).to_i %>
-        (<%= @product.price %>) 円
-      </div>
-      <div class="field">
-      <label for="product_status">販売ステータス</label>
+        </div>
+    </div>
+    <div class="form-group row">
+          <label for="product_price" class="col-sm-3 col-form-label">税込価格(税抜価格)</label>
+        <div class="col-sm-9">
+          <%= (@product.price * 1.1).to_i %>
+          (<%= @product.price %>) 円
+        </div>
+    </div>
+    <div class="form-group row">
+      <label for="product_status" class="col-sm-3 col-form-label">販売ステータス</label>
+      <div class="col-sm-9">
         <%= @product.status %>
       </div>
-
+    </div>
+    <div class="row">
+      <div class="col-sm-7"></div>
       <%= link_to "編集する", edit_admins_product_path, class: "btn btn-primary"  %>
+    </div>
 
 	</div>
 </div>

@@ -16,6 +16,8 @@ class Costomer < ApplicationRecord
   validates :address, presence: true
   validates :phone, presence: true
 
+  enum status: { 退会済: 1, 有効: 0 }
+
   include Discard::Model
   default_scope -> { kept }
 end
