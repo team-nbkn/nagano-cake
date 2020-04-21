@@ -56,7 +56,46 @@ body {
 	margin-bottom: 60px;
 	padding-bottom: 0;
 	padding-top: 110px;
+	background-image: url("back2.jpg");
+	background-size: cover;
 }
 /*application.scss適用　　ヘッダーandフッター ここまで*/
+// top画面
+.mains {
+	background: url("mains.jpg");
+	background-size: cover;
+	height: 320px;
+	width: 100%;
+	display:inline-block;
+	float: left;
+}
+.main3 {
+	background: url("main3.jpg");
+	background-size: cover;
+	height: 320px;
+	width: 355px;
+	float: left;
+}
+
+.main5 {
+	background: url("main5.jpg");
+	background-size: cover;
+	height: 320px;
+	width: 355px;
+	float: left;
+}
+.main6 {
+	background: url("main6.jpg");
+	background-size: cover;
+	height: 320px;
+	width: 355px;
+	float: left;
+}
+.recommend {
+	text-align: center;
+	font-size: 30px;
+	border-bottom: solid 5px #330000;
+	font-family: "Comic Sans MS";
+}
 
 
