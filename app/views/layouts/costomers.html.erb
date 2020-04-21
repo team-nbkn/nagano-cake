@@ -16,16 +16,18 @@
     <div class="navbar navbox navbar-fixed-top">
       <div class="container">
         <nav class="nav nav-c navbar-left">
-          <a href="" class="navbar-brand"></a>
+          <%= link_to costomers_products_path do %>
+            <div class="navbar-brand"></div>
+          <% end %>
         </nav>
         <nav>
         <ul class="nav navbar-nav navbar-right">
             <% if costomer_signed_in? %>
                 <li><%= link_to ' マイページ', costomers_costomers_path(current_costomer), class:"btn-sm btn-danger" %>
                 </li>
-                <li><%= link_to ' 商品一覧', costomers_products_path, class:"btn-sm btn-danger" %>
+                <li><%= link_to ' 商品一覧', costomers_products_top_path, class:"btn-sm btn-danger" %>
                 </li>
-                <li>
+                <li><%= link_to ' カート', costomers_cart_item_path(current_costomer), class:"btn-sm btn-danger" %>
                 </li>
                 <li><%= link_to " ログアウト", destroy_costomer_session_path, method: :delete, class:"btn-sm btn-danger" %>
                 </li>
