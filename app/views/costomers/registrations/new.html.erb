@@ -10,19 +10,19 @@
       <div class="form-group row">
         <label for="" class="col-sm-2 col-form-label">名前</label>
           <div class="col-sm-4">
-          　<%= f.label "（姓）" %>
+          　　<%= f.label "（姓）" %>
           　<%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
           </div>
           <div class="col-sm-3">
             <%= f.label "（名）" %>
-            <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+            　<%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
           </div>
       </div>
 
       <div class="form-group row">
         <label for="" class="col-sm-2 col-form-label">フリガナ</label>
           <div class="col-sm-4">
-            <%= f.label "（セイ）" %>
+            　　<%= f.label "（セイ）" %>
             <%= f.text_field :first_kana_name, autofocus: true, autocomplete: "first_kana_name" %>
           </div>
           <div class="col-sm-3">
@@ -35,14 +35,14 @@
       <div class="form-group row">
         <label for="" class="col-sm-3 col-form-label">メールアドレス</label>
           <div class="col-sm-3">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            　<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </div>
       </div>
 
       <div class="form-group row">
         <label for="" class="col-sm-3 col-form-label">郵便番号（ハイフンなし）</label>
           <div class="col-sm-3 ">
-            <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode" %>
+            　<%= f.text_field :postcode, autofocus: true, autocomplete: "postcode" %>
           </div>
       </div>
 

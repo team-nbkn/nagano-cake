@@ -1,2 +1,19 @@
-<h1>Costomers::OrderInfomations#show</h1>
-<p>Find me in app/views/costomers/order_infomations/show.html.erb</p>
+
+<h4><strong>注文履歴詳細</strong></h4>
+<div class="row">
+<p>注文情報</p>
+<table border="5" frame="box">
+	<tr>
+		<td><p>注文日<%= @order_infomation.create_at %></p></td>
+	</tr>
+	<tr>
+		<td><p>配送先<%= @shipping.address %></p></td>
+	</tr>
+	<tr>
+		<td><p>支払い方法<%= @order_infomation.payment_method %></p></td>
+	</tr>
+	<tr>
+		<td><p>ステータス<%= @order_infomation.status %></p></td>
+	</tr>
+</table>
+</div>

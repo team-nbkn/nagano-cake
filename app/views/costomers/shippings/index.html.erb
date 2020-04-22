@@ -7,16 +7,16 @@
     <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode" %>
     </div>
 
-    <div class="field">
+    <div class="field" size="100">
     <%= f.label "住所" %>
-    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+    　　　　　　　　　　<%= f.text_field :address, autofocus: true, autocomplete: "address", :size=>"60" %>
     </div>
 
     <div class="field">
     <%= f.label "宛名" %>
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    　　　　　　　　　　<%= f.text_field :name, autofocus: true, autocomplete: "name" %>
 
-    <%= f.submit "登録する" %>
+    　　<%= f.submit "登録する" %>
     </div>
 
   <% end %>
@@ -38,7 +38,7 @@
                     <%= shipping.postcode %>
                    </td>
                    <td>
-                     <%= shipping.address %>
+                    <%= shipping.address %>
                    </td>
                    <td>
                     <%= shipping.name %>
