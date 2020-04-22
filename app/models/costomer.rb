@@ -6,7 +6,7 @@ class Costomer < ApplicationRecord
 
   has_many :shippings
   has_many :order_informations
-  has_one :cart_item, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -20,4 +20,12 @@ class Costomer < ApplicationRecord
 
   include Discard::Model
   default_scope -> { kept }
+
+  def total_price
+    array = []
+    cart_items.each do |cart_item|
+      array << (cart_item.product.price * cart_item.order_quantity * 1.1).to_i
+    end
+    return array.sum
+  end
 end

@@ -25,10 +25,15 @@ Rails.application.routes.draw do
 
     resources :shippings, only: [:index, :edit, :create, :update, :destroy]
 
-    get 'order_infomations/confirm' => 'order_infomations#confirm'
-    post 'order_infomations/confirm' => 'order_infomations#create'
+     get 'order_infomations/confirm' => 'order_infomations#confirm'
+    # post 'order_infomations/confirm' => 'order_infomations#confirm_new'
     get 'order_infomations/thank' => 'order_infomations#thank'
-    resources :order_infomations, only: [:new, :create, :index, :show]
+    resources :order_infomations, only: [:new, :create, :index, :show] 
+    # do
+    #   collection do
+    #     post :confirm
+    #   end
+    # end
 
   end
 
