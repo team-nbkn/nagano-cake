@@ -4,11 +4,7 @@ class Costomers::CartItemsController < ApplicationController
   def show
     @cart_items = CartItem.where(costomer_id: current_costomer.id)
     @products = Product.all
-    array = []
-    @cart_items.each do |cart_item|
-      array << cart_item.product.price * cart_item.order_quantity
-    end
-    @total = array.sum
+    @total = current_costomer.total_price
   end
 
   def create

@@ -6,4 +6,7 @@ class Shipping < ApplicationRecord
   validates :address, presence: true
   validates :name, presence: true
 
+  def shipping_all
+  	"#{postcode} #{address} #{name}"
+  end
 end

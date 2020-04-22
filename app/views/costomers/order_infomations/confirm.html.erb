@@ -1,2 +1,88 @@
-<h1>Costomers::OrderInfomations#confirm</h1>
-<p>Find me in app/views/costomers/order_infomations/confirm.html.erb</p>
+<div class='body'>
+<div class="container">
+
+<div class="row">
+<!-- カート一覧 -->
+	<div class="col-xs-12">
+		<table class="table">
+			<caption><strong>注文情報確認</strong>
+			</caption>
+			<thead>
+				<tr>
+					<th>商品名</th>
+					<th colspan="1"></th>
+					<th>単価(税込)</th>
+					<th>数量</th>
+					<th>小計</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @cart_items.each do |cart_item| %>
+					<tr>
+						<td>
+							<%= attachment_image_tag cart_item.product, :image, :fill, 60, 60, format: 'jpeg', class: "pull-left"  %>
+						</td>
+						<td><%= cart_item.product.name %>
+						</td>
+						<td><%= ((cart_item.product.price).to_i * 1.1).to_i %>
+						</td>
+						<td><%= cart_item.order_quantity %>
+						</td>
+						<td><%= ((cart_item.product.price).to_i * 1.1).to_i * (cart_item.order_quantity).to_i %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr>
+					<th>送料</th>
+					<th>商品合計</th>
+					<th>請求金額</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>800</td>
+					<td><%= @total %></td>
+					<td><%= (@total).to_i + 800 %></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div>
+			<%= form_with model: @order_information, url: 'costomers_order_infomations', method: :post, data: {remote: false} do |f| %>
+				<div>
+					支払い方法
+					<%= @order_information.payment_method %>
+				</div>
+
+
+<!-- ifで条件分岐,ラジオボタン -->
+				<div>
+					お届け先
+					<%= @order_information.postcode %>
+					<%= @order_information.address %>
+					<%= @order_information.name %>
+				</div>
+		</div>
+
+
+          	<%= f.hidden_field :payment_method %>
+          	<%= f.hidden_field :payment_amount %>
+            <%= f.hidden_field :postcode %>
+            <%= f.hidden_field :address %>
+            <%= f.hidden_field :name %>
+            <%= f.hidden_field :costomer_id %>
+            <%= f.hidden_field :status %>
+
+        	<%= f.submit ('購入を確定する') %>
+    	<% end %>
+
+	</div>
+
+</div>
+</div>
+</div>
