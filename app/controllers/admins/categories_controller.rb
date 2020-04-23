@@ -14,14 +14,24 @@ class Admins::CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @category.save
-    redirect_to admins_categories_path
+    if @category.save
+      redirect_to admins_categories_path
+      flash[:notice] = "ジャンルを追加しました"
+    else
+      @category = Category.new
+      @categories = Category.all
+      render :index
+    end
   end
 
   def update
     @category = Category.find(params[:id])
-    @category.update(category_params)
-    redirect_to admins_categories_path
+    if @category.update(category_params)
+      redirect_to admins_categories_path
+      flash[:notice] = "ジャンル変更を保存しました"
+    else
+      render :edit
+    end
   end
 
   private

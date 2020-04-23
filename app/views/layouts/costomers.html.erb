@@ -25,7 +25,7 @@
             <% if costomer_signed_in? %>
                 <li><%= link_to ' マイページ', costomers_costomers_path(current_costomer), class:"btn-sm btn-danger" %>
                 </li>
-                <li><%= link_to ' 商品一覧', costomers_products_top_path, class:"btn-sm btn-danger" %>
+                <li><%= link_to ' 商品一覧', costomers_products_path, class:"btn-sm btn-danger" %>
                 </li>
                 <li><%= link_to ' カート', costomers_cart_item_path(current_costomer), class:"btn-sm btn-danger" %>
                 </li>
