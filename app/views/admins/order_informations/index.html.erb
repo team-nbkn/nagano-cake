@@ -27,7 +27,7 @@
                    	<%= f.created_at %>
                    </td>
                    <td>
-            	     <%= f.name %>
+            	     <%= f.costomer.first_name + f.costomer.last_name %>
                    </td>
                    <td>
                    	<%= f.order_product.quantity %>
@@ -59,7 +59,7 @@
                     <%= f.created_at %>
                    </td>
                    <td>
-                   <%= f.name %>
+                   <%= f.costomer.first_name + f.costomer.last_name %>
                    </td>
                    <td>
                     <%= f.order_product.quantity %>
@@ -92,7 +92,7 @@
                     <%= f.created_at %>
                    </td>
                    <td>
-                   <%= f.name %>
+                   <%= f.costomer.first_name + f.costomer.last_name %>
                    </td>
                    <td>
                     <%= f.order_product.quantity %>

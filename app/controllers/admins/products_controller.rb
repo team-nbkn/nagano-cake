@@ -20,17 +20,24 @@ class Admins::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    # @product.category_id = 1
-    # @product.status = 1
-    # @product.price = 500
-    @product.save!
-    redirect_to admins_product_path(@product.id)
+    if @product.save!
+     redirect_to admins_product_path(@product.id)
+     flash[:notice] = "商品を追加しました"
+    else
+      @product = Product.new
+      render :new
+    end
   end
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
-    redirect_to admins_product_path(@product.id)
+    if @product.update(product_params)
+      redirect_to admins_product_path(@product.id)
+      flash[:notice] = "商品情報変更を保存しました"
+    else
+      @product = Product.find(params[:id])
+      render :edit
+    end
   end
 
     # <% if @product.image_id? %>
