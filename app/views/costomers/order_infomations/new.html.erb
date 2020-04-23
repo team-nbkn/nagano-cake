@@ -4,7 +4,7 @@
 <h3><strong>注文情報入力</strong></h3>
 	<div class="row">
 
-  <%= form_with  url: costomers_order_infomations_confirm_path, method: :get, deta: {remote: false} do |f| %>
+  <%= form_with  url: costomers_order_infomations_confirm_path, method: :get, local: true do |f| %>
 
       <div>
           <%= f.label "お支払い方法" %>
@@ -28,7 +28,7 @@
         <div>
           <%= radio_button_tag("address_type", "2") %>登録済住所から選択
             <div>
-                <%= f.collection_select :select, @shippings, :id, :shipping_all %>
+              <%= f.select :shipping, current_costomer.shippings.map { |shipping| [shipping.postcode + "  " + shipping.address + "  " + shipping.name, shipping.id ]} %>
               </div>
         </div>
           <div>
@@ -38,7 +38,7 @@
                 <%= f.text_field :new_postcode %>
               </div>
               <div>
-                <%= f.label_ "住所" %>
+                <%= f.label "住所" %>
                 <%= f.text_field :new_address %>
               </div>
               <div>
