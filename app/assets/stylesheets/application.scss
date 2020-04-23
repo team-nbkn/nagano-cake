@@ -60,7 +60,8 @@ body {
 	background-size: cover;
 }
 /*application.scss適用　　ヘッダーandフッター ここまで*/
-// top画面
+
+// top画面(product)
 .mains {
 	background: url("mains.jpg");
 	background-size: cover;
@@ -97,9 +98,42 @@ body {
 	border-bottom: solid 5px #330000;
 	font-family: "Comic Sans MS";
 }
+
+// 購入後画面　thank.heml.erb
 .thank {
 	text-align: center;
 	margin: 20% auto;
 }
+
+// 商品一覧(product)
+.it {
+	float: left;
+	display: inline-block;
+	width: 150%;
+	padding: 20px;
+}
+.ss {
+	display: flex;
+}
+.p-title {
+	border-bottom: solid 5px #330000;
+	font-family: "ヒラギノ角ゴ Pro W6";
+}
+.pall-box {
+	width: 100%;
+	overflow: auto;
+}
+
+.scloll {
+	overflow: scroll;
+	height: 800px;
+}
+.toa {
+	margin-top: 25px;
+}
+.bot {
+	width: auto;
+}
+
 
 
