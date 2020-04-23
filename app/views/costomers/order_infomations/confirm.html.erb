@@ -96,7 +96,8 @@
         		<% end %>
 
         		<%= f.hidden_field :payment_amount , :value => @total_price %>
-        		<%= f.hidden_field :status , :value => 0 %>
+        		<%= f.hidden_field :status , :value => "入金待ち" %>
+        		<%= f.hidden_field :costomer_id , :value => @costomer.id %>
 
 		</div>
 

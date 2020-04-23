@@ -17,14 +17,15 @@
       </tr>
     </thead>
     <tbody>
-    	< @order_infomation.each do |oi| >
+    	<%= @order_infomations.each do |oi| %>
     	<tr>
-    	  	<td><p>　< oi.create_at ></p></td>
-    	  	<td><p>　< oi.sp_all ></p></td>
-    	  	<td><p>　< oi.order_puroduct.name ></p></td>
-    	  	<td><p>　< oi.total ></p></td>
-    	  	<td><p>　< oi.status ></p></td>
-    	  	<td><p>　< link_to "表示する", costomers_order_infomation_path(), class: "btn-sm btn-primary"%></p></td>
+    	  	<td><p>　<%= oi.create_at %></p></td>
+    	  	<td><p>　<%= oi.sp_all %></p></td>
+    	  	<td><p>　<%= oi.order_puroduct.name %></p></td>
+    	  	<td><p>　<%= oi.total %></p></td>
+    	  	<td><p>　<%= oi.status %></p></td>
+    	  	<td><p>　<%= link_to "表示する", costomers_order_infomation_path(order_infomation.id), class: "btn-sm btn-primary" %></p></td>
+      <% end %>
     	</tr>
     </tbody>
   </table>

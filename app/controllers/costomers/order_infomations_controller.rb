@@ -70,14 +70,16 @@ class Costomers::OrderInfomationsController < ApplicationController
   end
 
   def index
+    @order_informations = OrderInformation.where(costomer_id: current_costomer.id)
   end
 
   def show
+    @order_information = OrderInformation.find(params[:id])
   end
 
   private
     def order_information_params
-      params.require(:order_information).permit(:payment_method, :payment_amount, :customer_id, :status, :address, :postcode, :name)
+      params.require(:order_information).permit(:payment_method, :payment_amount, :costomer_id, :status, :address, :postcode, :name)
     end
 
     # def order_params
