@@ -47,36 +47,60 @@
 				<tr>
 					<td>800</td>
 					<td><%= @total %></td>
-					<td><%= (@total).to_i + 800 %></td>
+					<td><%= @total_price %></td>
 				</tr>
 			</tbody>
 		</table>
 
 		<div>
-			<%= form_with model: @order_information, url: 'costomers_order_infomations', method: :post, data: {remote: false} do |f| %>
+			<%= form_with model: @order_information, url: costomers_order_infomations_path, method: :post, data: {remote: false} do |f| %>
 				<div>
 					支払い方法
-					<%= @order_information.payment_method %>
+					<%= @payment_method %>
+					<%= f.hidden_field :payment_method, :value => @payment_method %>
 				</div>
 
 
 <!-- ifで条件分岐,ラジオボタン -->
 				<div>
 					お届け先
-					<%= @order_information.postcode %>
-					<%= @order_information.address %>
-					<%= @order_information.name %>
 				</div>
+<!-- ご自身の住所 -->
+        		<% if @address_type == "1" %>
+          			<%= @costomer.postcode + " " + @costomer.address %><br>
+          			<%= @costomer.first_name + " " + @costomer.last_name %>
+       	 			<%= f.hidden_field :postcode, :value => @costomer.postcode %>
+        			<%= f.hidden_field :address, :value => @costomer.address %>
+        			<%= f.hidden_field :name, :value => @costomer.first_name + @costomer.last_name %>
+
+<!-- 登録済み住所 -->
+        		<% elsif @address_type == "2" %>
+         	 		<%= @shipping.postcode + " " + @shipping.address %><br>
+          			<%= @shipping.name %>
+        			<%= f.hidden_field :postcode, :value => @shipping.postcode %>
+        			<%= f.hidden_field :address, :value => @shipping.address %>
+        			<%= f.hidden_field :name, :value => @shipping.name %>
+
+<!-- 新しいお届け先 -->
+        		<% elsif @address_type == "3" %>
+          			<%= @new_postcode + " " + @new_address %><br>
+          			<%= @new_name %>
+        			<%= f.hidden_field :postcode, :value => @new_postcode %>
+        			<%= f.hidden_field :address, :value => @new_address %>
+        			<%= f.hidden_field :name, :value => @new_name %>
+
+<!-- 新しいお届け先の保存 -->
+        			<%= f.hidden_field :postcode, :value => @new_postcode %>
+        			<%= f.hidden_field :address, :value => @new_address %>
+        			<%= f.hidden_field :name, :value => @new_name %>
+        		<% end %>
+
+        		<%= f.hidden_field :payment_amount , :value => @total_price %>
+        		<%= f.hidden_field :status , :value => 0 %>
+
 		</div>
 
 
-          	<%= f.hidden_field :payment_method %>
-          	<%= f.hidden_field :payment_amount %>
-            <%= f.hidden_field :postcode %>
-            <%= f.hidden_field :address %>
-            <%= f.hidden_field :name %>
-            <%= f.hidden_field :costomer_id %>
-            <%= f.hidden_field :status %>
 
         	<%= f.submit ('購入を確定する') %>
     	<% end %>
