@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
+  root to: 'costomers/products#top'
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
-  passwords:     'admins/passwords',
   registrations: 'admins/registrations'
   }
   devise_for :costomers, controllers: {
@@ -28,7 +27,7 @@ Rails.application.routes.draw do
      get 'order_infomations/confirm' => 'order_infomations#confirm'
     # post 'order_infomations/confirm' => 'order_infomations#confirm_new'
     get 'order_infomations/thank' => 'order_infomations#thank'
-    resources :order_infomations, only: [:new, :create, :index, :show] 
+    resources :order_infomations, only: [:new, :create, :index, :show]
     # do
     #   collection do
     #     post :confirm
@@ -50,7 +49,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :edit, :create, :update]
 
     resources :order_informations, only: [:index, :show, :update]
-
+    patch 'order_informations/:id/order_product_update' => 'order_informations#order_product_update'
   end
 
 end

@@ -24,13 +24,13 @@
               <% @order_informations.each do |f| %>
                 <tr>
                    <td>
-                   	<%= f.created_at %>
+                   	<%= link_to f.created_at.to_s(:datetime_jp), admins_order_information_path(f.id) %>
                    </td>
                    <td>
             	     <%= f.costomer.first_name + f.costomer.last_name %>
                    </td>
                    <td>
-                   	<%= f.order_product.quantity %>
+                   	<%= f.order_products.sum(:quantity) %>
                    </td>
                    <td>
                    	<%= f.status %>
