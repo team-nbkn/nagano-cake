@@ -1,19 +1,78 @@
+<div class="body">
+  <div class="container">
 
-<h4><strong>注文履歴詳細</strong></h4>
-<div class="row">
-<p>注文情報</p>
-<table border="5" frame="box">
-	<tr>
-		<td><p>注文日<%= @order_infomation.create_at %></p></td>
-	</tr>
-	<tr>
-		<td><p>配送先<%= @shipping.address %></p></td>
-	</tr>
-	<tr>
-		<td><p>支払い方法<%= @order_infomation.payment_method %></p></td>
-	</tr>
-	<tr>
-		<td><p>ステータス<%= @order_infomation.status %></p></td>
-	</tr>
-</table>
+    <h3>注文履歴詳細</h3>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <h3>注文情報</h3>
+        <table class="table table-bordered">
+          <tr>
+            <td>注文日</td>
+            <td><%= @order_information.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <td>配送先</td>
+            <td>
+              <%= @order_information.postcode %><br>
+              <%= @order_information.address %><br>
+              <%= @order_information.name %>
+            </td>
+          </tr>
+          <tr>
+            <td>支払い方法</td>
+            <td><%= @order_information.payment_method %></td>
+          </tr>
+          <tr>
+            <td>ステータス</td>
+            <td><%= @order_information.status %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-xs-6">
+        <h3>請求情報</h3>
+        <table class="table table-bordered">
+          <tr>
+            <td>商品合計</td>
+            <td><%= @order_information.payment_amount %></td>
+          </tr>
+          <tr>
+            <td>配送料</td>
+            <td>800</td>
+          </tr>
+          <tr>
+            <td>ご請求額</td>
+            <td><%= @order_information.payment_amount + 800 %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <h3>注文内容</h3>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <td>商品</td>
+              <td>単価(税込)</td>
+              <td>個数</td>
+              <td>小計</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order_products.each do |order_product| %>
+              <tr>
+                <td><%= order_product.product.name %></td>
+                <td><%= (order_product.price * 1.1).to_i %></td>
+                <td><%= order_product.quantity %></td>
+                <td><%= (order_product.price * order_product.quantity * 1.1).to_i %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
 </div>
