@@ -3,17 +3,27 @@
 
 <h3><strong>注文情報入力</strong></h3>
 	<div class="row">
+    <div class="col-xs-6">
+      <%= form_with  url: costomers_order_infomations_confirm_path, method: :get, local: true do |f| %>
 
-  <%= form_with  url: costomers_order_infomations_confirm_path, method: :get, local: true do |f| %>
+          <h4>お支払い方法</h4>
+          <table>
+            <tr>
+              <td><%= f.radio_button :payment_method, "クレジットカード" %>クレジットカード
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.radio_button :payment_method, "銀行振り込み" %>銀行振り込み
+              </td>
+            </tr>
+          </table>
+    </div>
+  </div>
 
-      <div>
-          <%= f.label "お支払い方法" %>
-          <%= f.radio_button :payment_method, "クレジットカード" %>クレジットカード
-          <%= f.radio_button :payment_method, "銀行振り込み" %>銀行振り込み
-        </div>
-
-        <div>
-        <%= f.label "お届け先" %>
+  <div class="row">
+    <div class="col-xs-6">
+      <h4>お届け先</h4>
           <div>
             <%= radio_button_tag("address_type", "1") %>ご自身の住所
               <div>
@@ -33,26 +43,37 @@
         </div>
           <div>
             <%= radio_button_tag("address_type", "3") %>新しいお届け先
-              <div>
-                <%= f.label "郵便番号(ハイフンなし)" %>
-                <%= f.text_field :new_postcode %>
+              <div class="row">
+                <div class="col-sm-4">
+                  <%= f.label "郵便番号(ハイフンなし)" %>
+                </div>
+                <div class="col-sm-8">
+                  <%= f.text_field :new_postcode %>
+                </div>
               </div>
-              <div>
-                <%= f.label "住所" %>
-                <%= f.text_field :new_address %>
+              <div class="row">
+                <div class="col-sm-4">
+                  <%= f.label "住所" %>
+                </div>
+                <div class="col-sm-8">
+                  <%= f.text_field :new_address %>
+                </div>
               </div>
-              <div>
-                <%= f.label "宛名" %>
-                <%= f.text_field :new_name %>
+              <div class="row">
+                <div class="col-sm-4">
+                  <%= f.label "宛名" %>
+                </div>
+                <div class="col-sm-8">
+                  <%= f.text_field :new_name %>
+                </div>
               </div>
           </div>
-        </div>
 
-        <%= f.submit ('確認画面へ進む') %>
-    <% end %>
+        <%= f.submit '確認画面へ進む', class: "btn btn-primary col-xs-4" %>
+      <% end %>
     </div>
+  </div>
 
-  	</div>
 
 </div>
 </div>
