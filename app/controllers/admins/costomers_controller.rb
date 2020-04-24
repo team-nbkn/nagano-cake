@@ -1,6 +1,7 @@
 class Admins::CostomersController < ApplicationController
 
   layout 'admins'
+  before_action :authenticate_admin!
 
   def show
     @costomer = Costomer.find(params[:id])
@@ -26,7 +27,10 @@ class Admins::CostomersController < ApplicationController
   end
 
   def top
-    @order_information = OrderInformation.where(created_at: Date.today.all_day).count
+    # @order_information = OrderInformation.where(created_at: Date.today.all_day).count
+    # @order_information = OrderInformation.where(Date.today.all_day).count
+    @order_information = OrderInformation.where("Date(created_at) = '#{Date.today}'")
+    @order = OrderInformation.where(created_at: Date.today.all_day)
   end
 
   private

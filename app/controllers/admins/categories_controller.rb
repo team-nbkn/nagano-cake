@@ -1,6 +1,7 @@
 class Admins::CategoriesController < ApplicationController
 
   layout 'admins'
+  before_action :authenticate_admin!
 
   def index
     # @category = Category.find(params[:category_id])

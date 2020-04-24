@@ -55,11 +55,9 @@
 				<% @products.each do |product| %>
 					<tr>
 						<td>
-							<%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-thumb"  %>
+							<%= attachment_image_tag product, :image, :fill, 130, 130, format: 'jpeg', class: "img-circle pull-left profile-thumb"  %>
 						</td>
-						<td><h4><strong><%= link_to product.name, costomers_product_path(product.id) %></strong></h4>
-						</td>
-						<td>¥<%= product.price %>
+						<td><h4><strong><%= link_to product.name, costomers_product_path(product.id) %></strong></h4><br><h5 class="price"><strong>¥<%= product.price %></strong></h5>
 						</td>
 					</tr>
 				<% end %>

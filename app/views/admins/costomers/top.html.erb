@@ -6,7 +6,7 @@
     <h3>本日の注文件数</h3>
   </div>
   <div class="col-xs-9">
-  	<%= link_to admins_order_informations_path(@order_information) do %>
+  	<%= link_to admins_order_informations_path(created_at: Date.today.all_day) do %>
       <h3><%= @order_information %>件</h3>
     <% end %>
   </div>
