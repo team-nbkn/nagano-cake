@@ -3,27 +3,35 @@
 </div>
 <!-- 購入者情報 -->
 <div class="row">
-	<div class="col-xs-10">
-	  <div class="field">
-        <label for="product_name">購入者</label>
-        <%= @order_information.name %>
-      </div>
-      <div class="field">
-        <label for="product_body">配送先</label>
-        <%= @order_information.postcode %>
-        <%= @order_information.address %>
-        <%= @order_information.name %>
-      </div>
-      <div class="field">
-        <label for="product_category">支払方法</label>
-          <%= @order_information.payment_method %>
-      </div>
-      <%= form_for [:admins, @order_information] do |f| %>
-        <div class="field">
-          <label for="product_price">注文ステータス</label>
-            <%= f.select :status, ['入金待ち', '入金確認', '製作中', '発送準備中', '発送済み'],{ class: "status"} %>
+	<div class="col-xs-12">
+	    <div class="form-group row">
+        <label for="costomer" class="col-sm-2 col-form-label">購入者</label>
+        <div class="col-sm-9">
+          <%= @order_information.costomer.first_name + @order_information.costomer.last_name %>
         </div>
-        <%= f.submit "更新", class: "btn btn-primary" %>
+      </div>
+      <div class="form-group row">
+        <label for="adress" class="col-sm-2 col-form-label">配送先</label>
+        <div class="col-sm-9">
+          <%= @order_information.postcode %>
+          <%= @order_information.address %>
+          <%= @order_information.name %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="price" class="col-sm-2 col-form-label">支払方法</label>
+        <div class="col-sm-9">
+          <%= @order_information.payment_method %>
+        </div>
+      </div>
+      <%= form_for(@order_information, url: admins_order_information_path(@order_information), method: :patch) do |order_information| %>
+      <div class="form-group row">
+        <label for="status" class="col-sm-2 col-form-label">注文ステータス</label>
+        <div class="col-sm-9">
+            <%= order_information.select :status, ['入金待ち', '入金確認', '製作中', '発送準備中', '発送済み'],{ class: "status"} %>
+            <%= order_information.submit "更新", class: "btn-xs btn-primary" %>
+        </div>
+      </div>
       <% end %>
 	</div>
 </div>
@@ -31,7 +39,7 @@
 <!-- 注文商品 -->
     <div class="row">
 
-        <div class="col-xs-11">
+        <div class="col-xs-8">
 
           <table class="table table-hover table-inverse">
             <thead>
@@ -45,24 +53,24 @@
             </thead>
 
             <tbody>
-              <% @order_informations.each do |pr| %>
+              <% @order_products.each do |pr| %>
                 <tr>
                    <td>
-                   	<%= pr.name %>
+                   	<%= pr.product.name %>
                    </td>
                    <td>
-            	    <%= pr.order_product.price %>
+            	    <%= (pr.price * 1.1).to_i %>
                    </td>
                    <td>
-                   	<%= pr.order_product.quantity %>
+                   	<%= pr.quantity %>
                    </td>
                    <td>
-                   	(<%= pr.order_product.price * pr.order_product.quantity %>).to_i
+                   	<%= (pr.price * pr.quantity * 1.1).to_i %>
                    </td>
                    <td>
-                   	<%= form_for [:admins, @order_information] do |f| %>
-                   	  <%= f.order_product.select :status, ['着手不可', '制作待ち', '製作中', '制作完了'],{ class: "status"} %>
-                   	  <%= f.submit "更新", class: "btn btn-primary" %>
+                   	<%= form_for(pr, url: admins_path(pr.id), method: :patch) do |f| %>
+                   	  <%= f.select :status, ['着手不可', '制作待ち', '製作中', '制作完了'],{ class: "status"} %>
+                   	  <%= f.submit "更新", class: "btn-xs btn-primary" %>
                    	<% end %>
                    </td>
                 </tr>
@@ -70,4 +78,26 @@
             </tbody>
           </table>
         </div>
+        <div class="col-xs-4">
+            <div class="form-group row">
+              <label for="costomer" class="col-sm-3 col-form-label">商品合計</label>
+              <div class="col-sm-6">
+                <%= @order_information.payment_amount - 800  %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="costomer" class="col-sm-3 col-form-label">送料</label>
+              <div class="col-sm-6">
+                800円
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="costomer" class="col-sm-3 col-form-label">請求合計金額</label>
+              <div class="col-sm-6">
+                <%= @order_information.payment_amount  %>
+              </div>
+            </div>
+        </div>
+
     </div>
+</div>

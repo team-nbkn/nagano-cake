@@ -26,7 +26,7 @@ class Admins::CostomersController < ApplicationController
   end
 
   def top
-    @order_information = OrderInformation.where(created_at: 1.day.ago.all_day)
+    @order_information = OrderInformation.where(created_at: Date.today.all_day).count
   end
 
   private
