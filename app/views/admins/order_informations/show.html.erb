@@ -78,23 +78,23 @@
             </tbody>
           </table>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-4 fixed-bottom">
             <div class="form-group row">
-              <label for="costomer" class="col-sm-3 col-form-label">商品合計</label>
+              <label for="costomer" class="col-sm-5 col-form-label">商品合計</label>
               <div class="col-sm-6">
-                <%= @order_information.payment_amount - 800  %>
+                <%= @order_information.payment_amount - 800  %>円
               </div>
             </div>
             <div class="form-group row">
-              <label for="costomer" class="col-sm-3 col-form-label">送料</label>
+              <label for="costomer" class="col-sm-5 col-form-label">送料</label>
               <div class="col-sm-6">
                 800円
               </div>
             </div>
             <div class="form-group row">
-              <label for="costomer" class="col-sm-3 col-form-label">請求合計金額</label>
+              <label for="costomer" class="col-sm-5 col-form-label">請求合計金額</label>
               <div class="col-sm-6">
-                <%= @order_information.payment_amount  %>
+                <%= @order_information.payment_amount %>円
               </div>
             </div>
         </div>

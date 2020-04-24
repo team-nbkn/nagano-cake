@@ -1,6 +1,7 @@
 class Admins::OrderInformationsController < ApplicationController
 
   layout 'admins'
+  before_action :authenticate_admin!
 
   def index
   	@order_informations = OrderInformation.all
@@ -25,14 +26,14 @@ class Admins::OrderInformationsController < ApplicationController
 
   def order_product_update
     @order_product = OrderProduct.find(params[:id])
-    @order_information = OrderInformation.find(params[:id])
+    @order_products = OrderProduct.find(params[:id]).order_information.order_products
     @order_product.update!(order_product_params)
-    if @order_product.status == "制作完了"
-      @order_information.update(status: "発送準備中")
-      redirect_to admins_order_information_path(@order_information.id)
-    else
-      redirect_to admins_order_information_path(@order_information.id)
+    if @order_product.status == "製作中"
+        @order_product.order_information.update(status: "製作中")
+    elsif @order_products.map{|o| o.status}.all? {|o| o == "制作完了" }
+        @order_product.order_information.update(status: "発送準備中")
     end
+    redirect_to admins_order_information_path(@order_product.order_information.id)
   end
 
   private

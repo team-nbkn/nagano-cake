@@ -1,6 +1,7 @@
 class Admins::ProductsController < ApplicationController
 
   layout 'admins'
+  before_action :authenticate_admin!
 
   def edit
     @product = Product.find(params[:id])

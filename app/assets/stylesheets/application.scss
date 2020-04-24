@@ -18,10 +18,10 @@
 
 /*application.scss適用　　ヘッダーandフッター*/
 .navbar-brand {
-	background: url("image2.jpg");
+	background: url("logo2.jpg");
 	background-size: cover;
 	height: 60px;
-	width: 110px;
+	width: 180px;
 }
 .nav-c {
 	margin-top: 20px;
@@ -58,7 +58,9 @@ body {
 	padding-top: 110px;
 	background-image: url("back2.jpg");
 	background-size: cover;
+	font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
 }
+// 'Hannotate SC'
 /*application.scss適用　　ヘッダーandフッター ここまで*/
 
 // top画面(product)
@@ -98,6 +100,9 @@ body {
 	border-bottom: solid 5px #330000;
 	font-family: "Comic Sans MS";
 }
+.price {
+	float: right;
+}
 
 // 購入後画面　thank.heml.erb
 .thank {
@@ -117,7 +122,6 @@ body {
 }
 .p-title {
 	border-bottom: solid 5px #330000;
-	font-family: "ヒラギノ角ゴ Pro W6";
 }
 .pall-box {
 	width: 100%;
