@@ -1,24 +1,64 @@
-# README
+# Nagano-Cake
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## トップページURL
+- http://localhost:3000
 
-Things you may want to cover:
+## 概要
+長野県にある洋菓子店「Nagano-Cake」で販売中の商品を販売する通販サイトです。
 
-* Ruby version
+## 会員側実装機能
+- トップページ
+- ログイン機能
+- 会員登録機能
+- 商品機能
+　* 商品一覧
+　* 商品詳細
+- カート機能
+- 注文情報機能
+　* 注文情報入力
+　* 注文情報確認
+　* 注文完了
+- マイページ
+- 退会機能
+- 登録情報機能
+　* 登録情報編集
+- 配送先機能
+　* 配送先の登録
+　* 配送先一覧
+　* 配送先編集
+- 注文履歴機能
+　* 注文履歴詳細
+　* 注文履歴一覧
 
-* System dependencies
+## 管理者側実装機能
+- ログイン機能
+- 商品機能
+　* 商品一覧
+　* 商品詳細
+　* 商品編集
+- ジャンル機能
+　* ジャンル一覧
+　* ジャンル追加
+　* ジャンル編集
+- 会員機能
+　* 会員一覧
+　* 会員詳細
+　* 会員編集
+- 注文履歴機能
+　* 注文履歴一覧
+　* 注文履歴詳細
 
-* Configuration
+## 開発環境
+- ruby '2.5.7'
+- rails '5.2.4.2'
+- bootstrap : '3.4.1'
 
-* Database creation
+## 管理者側ログインページURL
+- http://localhost:3000/admins/sign_in
+- 管理者側はseedファイルデータからログインができます。
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 最後に
+ここまで読んでくださりありがとうございました。
+メンバーが一丸となって作成に取り組みました。
+どうぞよろしくお願いします。
