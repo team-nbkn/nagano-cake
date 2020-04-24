@@ -70,11 +70,16 @@ class Costomers::OrderInfomationsController < ApplicationController
   end
 
   def index
-    @order_informations = OrderInformation.where(costomer_id: current_costomer.id)
+    @order_informations = OrderInformation.where(costomer_id: current_costomer.id).order(created_at: :desc)
+    @total = current_costomer.total_price
+    @total_price = ((@total).to_i + 800).to_i
+    @order_products = OrderProduct.all
   end
 
   def show
     @order_information = OrderInformation.find(params[:id])
+    # @order_products = @order.order_products
+    @order_products = OrderProduct.all
   end
 
   private
