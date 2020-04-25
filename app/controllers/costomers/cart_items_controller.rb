@@ -1,5 +1,6 @@
 class Costomers::CartItemsController < ApplicationController
   layout 'costomers'
+  before_action :authenticate_costomer!
 
   def show
     @cart_items = CartItem.where(costomer_id: current_costomer.id)

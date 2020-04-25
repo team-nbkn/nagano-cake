@@ -1,6 +1,7 @@
 class Costomers::CostomersController < ApplicationController
 
   layout 'costomers'
+  before_action :authenticate_costomer!
 
   def show
     @costomer = current_costomer
