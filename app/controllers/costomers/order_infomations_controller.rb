@@ -19,8 +19,6 @@ class Costomers::OrderInfomationsController < ApplicationController
     @order_information = OrderInformation.new
     @order_information.costomer = current_costomer
     @costomer = current_costomer
-    @shipping = current_costomer.shippings.all
-    # @shipping = Shipping.find(params[:shipping])
 
 #受け取る物
     @payment_method = params[:payment_method]
@@ -29,6 +27,14 @@ class Costomers::OrderInfomationsController < ApplicationController
     @new_postcode = params[:new_postcode]
     @new_address = params[:new_address]
     @new_name = params[:new_name]
+
+    if @address_type == "1"
+      @shipping = current_costomer.shippings.all
+    elsif @address_type == "2"
+      @shipping = Shipping.find(params[:shipping])
+    else @address_type == "3"
+      @shipping = Shipping.find(params[:shipping])
+    end
   end
 
     def create
