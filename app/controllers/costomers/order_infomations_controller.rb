@@ -34,6 +34,12 @@ class Costomers::OrderInfomationsController < ApplicationController
       @shipping = Shipping.find(params[:shipping])
     else @address_type == "3"
       @shipping = Shipping.find(params[:shipping])
+        @shipping = Shipping.new
+        @shipping.postcode = @new_postcode
+        @shipping.address = @new_address
+        @shipping.name = @new_name
+        @shipping.costomer_id = current_costomer.id
+        @shipping.save
     end
   end
 
@@ -43,14 +49,8 @@ class Costomers::OrderInfomationsController < ApplicationController
       @total = current_costomer.total_price
       @total_price = @total + 800
       @order_information.payment_amount = @total_price
-
-        if @order_information.save
-          @shipping = Shipping.new
-          @shipping.postcode = params[:order_information][:postcode]
-          @shipping.address = params[:order_information][:address]
-          @shipping.name = params[:order_information][:name]
-          @shipping.costomer_id = current_costomer.id
-          @shipping.save
+      @address_type = params[:address_type]
+      @order_information.save
           #     @shipping.errors.full_messages.each do |msg|
           #       pp msg
           #     end
@@ -59,17 +59,17 @@ class Costomers::OrderInfomationsController < ApplicationController
         #   @order_information.errors.full_messages.each do |msg|
         #     pp msg
         #   end
-        end
 
-        current_costomer.cart_items.each do |cart_item|
-          @order_product = OrderProduct.new
-          @order_product.product_id = cart_item.product_id
-          @order_product.order_information_id = @order_information.id
-          @order_product.quantity = cart_item.order_quantity
-          @order_product.price = cart_item.product.price
-          @order_product.save
-          cart_item.destroy
-        end
+
+      current_costomer.cart_items.each do |cart_item|
+        @order_product = OrderProduct.new
+        @order_product.product_id = cart_item.product_id
+        @order_product.order_information_id = @order_information.id
+        @order_product.quantity = cart_item.order_quantity
+        @order_product.price = cart_item.product.price
+        @order_product.save
+        cart_item.destroy
+      end
           redirect_to costomers_order_infomations_thank_path
     end
 
@@ -94,8 +94,4 @@ class Costomers::OrderInfomationsController < ApplicationController
     def order_information_params
       params.require(:order_information).permit(:payment_method, :payment_amount, :costomer_id, :status, :address, :postcode, :name)
     end
-
-    # def order_params
-    #   @order_information = OrderInformation.new(params.require(:order_information).permit(:payment_method, :payment_amount, :customer_id, :status, :address, :postcode, :name))
-    # end
 end
