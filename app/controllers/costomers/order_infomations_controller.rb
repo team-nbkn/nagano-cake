@@ -19,8 +19,8 @@ class Costomers::OrderInfomationsController < ApplicationController
     @order_information = OrderInformation.new
     @order_information.costomer = current_costomer
     @costomer = current_costomer
-    # @shippings = current_costomer.shippings
-    @shipping = Shipping.find(params[:shipping])
+    @shipping = current_costomer.shippings.all
+    # @shipping = Shipping.find(params[:shipping])
 
 #受け取る物
     @payment_method = params[:payment_method]
@@ -80,7 +80,8 @@ class Costomers::OrderInfomationsController < ApplicationController
   def show
     @order_information = OrderInformation.find(params[:id])
     # @order_products = @order.order_products
-    @order_products = OrderProduct.all
+    # @order_products = OrderProduct.all
+    @order_products = OrderProduct.where(order_information_id: @order_information.id)
   end
 
   private
