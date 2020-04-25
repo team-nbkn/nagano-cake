@@ -1,6 +1,7 @@
 class Costomers::OrderInfomationsController < ApplicationController
 
   layout 'costomers'
+  before_action :authenticate_costomer!
 
   # before_action :order_params, only: [:confirm, :create]
 

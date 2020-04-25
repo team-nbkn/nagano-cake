@@ -1,6 +1,7 @@
 class Costomers::ShippingsController < ApplicationController
 
   layout 'costomers'
+  before_action :authenticate_costomer!
 
   def index
   	@shippings = Shipping.where(costomer_id: current_costomer.id)

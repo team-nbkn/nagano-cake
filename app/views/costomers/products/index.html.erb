@@ -2,12 +2,12 @@
 <!-- ジャンル検索 -->
 	<div class="col-xs-2" >
 	  <div class="categories">
-        <div class="panel panel-danger">
-          <div class="panel-heading"><h4><strong>ジャンル検索</strong></h4></div>
+        <div class="panel panel-color">
+          <div class="panel-im"><h4><strong>ジャンル検索</strong></h4></div>
              <div class="panel-body">
                   <% @categories.each do |category| %>
-				    <strong><%= link_to category.name, costomers_products_path(category_id: category.id) %></strong><br><br>
-					<% end %>
+            <strong><%= link_to category.name, costomers_products_path(category_id: category.id) %></strong><br><br>
+                  <% end %>
              </div>
         </div>
       </div>
@@ -24,16 +24,16 @@
       <p class="text-left">(全<%= @products.count %>件)</p>
       <div class="row">
       	<div class="pall-box">
-        <div class="col-lg-4 ss">
+        <div class="col-xs-12">
           <% @products.each do |product| %>
-            <div class="card it" style="width: 70rem;">
+            <div class="card it" style="width: 23rem;">
                <%= link_to costomers_product_path(product.id) do %>
-                 <%= attachment_image_tag product, :image, :fill, 170, 150, format: 'jpeg', class: "card-img-top ima"  %>
+                 <%= attachment_image_tag product, :image, :fill, 200, 180, format: 'jpeg', class: "card-img-top ima"  %>
                <% end %>
                  <div class="card-body">
                   <h5><strong><%= link_to product.name, costomers_product_path(product.id), class: "card-title" %></strong></h5>
                   <p class="card-text"><strong>¥<%= product.price %></strong></p>
-                  <%= link_to '詳細を見る', costomers_product_path(product.id), class: "btn-sm btn-danger" %>
+                  <%= link_to '詳細を見る', costomers_product_path(product.id), class: "btn-sm btn-danger bimage" %>
                 </div>
             </div>
           <% end %>
@@ -48,16 +48,16 @@
       <p class="text-left">(全<%= @products.count %>件)</p>
       <div class="row">
       	<div class="pall-box">
-        <div class="col-lg-4 ss">
+        <div class="col-xs-12">
           <% @products.each do |product| %>
-            <div class="card it" style="width: 70rem;">
+            <div class="card it" style="width: 23rem;">
                <%= link_to costomers_product_path(product.id) do %>
-                 <%= attachment_image_tag product, :image, :fill, 170, 150, format: 'jpeg', class: "card-img-top ima"  %>
+                 <%= attachment_image_tag product, :image, :fill, 200, 180, format: 'jpeg', class: "card-img-top ima"  %>
                <% end %>
                  <div class="card-body">
                   <h5><strong><%= link_to product.name, costomers_product_path(product.id), class: "card-title" %></strong></h5>
                   <p class="card-text"><strong>¥<%= product.price %></strong></p>
-                  <%= link_to '詳細を見る', costomers_product_path(product.id), class: "btn-sm btn-danger" %>
+                  <%= link_to '詳細を見る', costomers_product_path(product.id), class: "btn-sm btn-danger bimage" %>
                 </div>
             </div>
           <% end %>

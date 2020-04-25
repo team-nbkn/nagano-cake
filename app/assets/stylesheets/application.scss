@@ -103,6 +103,34 @@ body {
 .price {
 	float: right;
 }
+.effect-float a {
+  display: block;
+  height: 130px;
+  box-shadow: 0 2px 4px rgba(3,3,3,.09);
+  border-radius: 3px;
+}
+.effect-float a:hover {
+  display: block;
+  height: 130px;
+  box-shadow: 0 8px 12px rgba(0,0,0,.12);
+  border-radius: 3px;
+  margin-top:-5px;
+}
+.panel-im {
+	color: white;
+	background: url("back4.jpg");
+	border-color: #330000;
+	padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+}
+.panel-color {
+	border-color: #330000;
+	border-width: medium;
+	background: url("back7.jpg");
+}
+.bimage {
+	background: url("back4.jpg");
+}
 
 // 購入後画面　thank.heml.erb
 .thank {
