@@ -34,7 +34,7 @@
         <table class="table table-bordered">
           <tr>
             <td>商品合計</td>
-            <td><%= @order_information.payment_amount %></td>
+            <td><%= @order_information.payment_amount - 800 %></td>
           </tr>
           <tr>
             <td>配送料</td>
@@ -42,7 +42,7 @@
           </tr>
           <tr>
             <td>ご請求額</td>
-            <td><%= @order_information.payment_amount + 800 %></td>
+            <td><%= @order_information.payment_amount %></td>
           </tr>
         </table>
       </div>
