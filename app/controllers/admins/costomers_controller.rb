@@ -27,10 +27,10 @@ class Admins::CostomersController < ApplicationController
   end
 
   def top
-    # @order_information = OrderInformation.where(created_at: Date.today.all_day).count
+    @order_information = OrderInformation.where(created_at: Date.today.all_day).count
     # @order_information = OrderInformation.where(Date.today.all_day).count
-    @order_information = OrderInformation.where("Date(created_at) = '#{Date.today}'")
-    @order = OrderInformation.where(created_at: Date.today.all_day)
+    # @order_information = OrderInformation.where("Date(created_at) = '#{Date.today}'").count
+    # @order = OrderInformation.where(created_at: Date.today.all_day)
   end
 
   private

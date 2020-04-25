@@ -28,7 +28,7 @@
       <div class="form-group row">
         <label for="status" class="col-sm-2 col-form-label">注文ステータス</label>
         <div class="col-sm-9">
-            <%= order_information.select :status, ['入金待ち', '入金確認', '製作中', '発送準備中', '発送済み'],{ class: "status"} %>
+            <%= order_information.select :status, ['入金待ち', '入金確認', '製作中', '発送準備中', '発送済'],{ class: "status"} %>
             <%= order_information.submit "更新", class: "btn-xs btn-primary" %>
         </div>
       </div>
