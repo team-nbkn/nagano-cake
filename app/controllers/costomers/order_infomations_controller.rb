@@ -33,7 +33,6 @@ class Costomers::OrderInfomationsController < ApplicationController
     elsif @address_type == "2"
       @shipping = Shipping.find(params[:shipping])
     else @address_type == "3"
-      @shipping = Shipping.find(params[:shipping])
         @shipping = Shipping.new
         @shipping.postcode = @new_postcode
         @shipping.address = @new_address
