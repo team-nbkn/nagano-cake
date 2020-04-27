@@ -64,35 +64,40 @@ body {
 /*application.scss適用　　ヘッダーandフッター ここまで*/
 
 // top画面(product)
-.mains {
-	background: url("mains.jpg");
-	background-size: cover;
-	height: 320px;
-	width: 100%;
-	display:inline-block;
-	float: left;
-}
-.main3 {
-	background: url("main3.jpg");
-	background-size: cover;
-	height: 320px;
-	width: 355px;
-	float: left;
-}
+// .mains {
+// 	background: url("main2.jpg");
+// 	background-size: cover;
+// 	height: auto;
+// 	width: 50%;
+// 	display: block;
+// 	float: left;
+// 	position: relative;
+// }
+// .main3 {
+// 	background: url("mains2.jpg");
+// 	background-size: cover;
+// 	height: 320px;
+// 	width: 355px;
+// 	float: left;
+// }
 
-.main5 {
-	background: url("main5.jpg");
-	background-size: cover;
-	height: 320px;
-	width: 355px;
-	float: left;
-}
-.main6 {
-	background: url("main6.jpg");
-	background-size: cover;
-	height: 320px;
-	width: 355px;
-	float: left;
+// .main5 {
+// 	background: url("mains3.jpg");
+// 	background-size: cover;
+// 	height: 320px;
+// 	width: 355px;
+// 	float: left;
+// }
+// .main6 {
+// 	background: url("mains4.jpg");
+// 	background-size: cover;
+// 	height: 320px;
+// 	width: 355px;
+// 	float: left;
+// }
+.ima {
+	border-radius: 35px;
+	border: 2px solid #330000;
 }
 .recommend {
 	text-align: center;
@@ -160,6 +165,11 @@ body {
 	overflow: scroll;
 	height: 800px;
 }
+.scloll-top {
+	overflow: scroll;
+	height: 600px;
+}
+
 .toa {
 	margin-top: 25px;
 }
