@@ -2,8 +2,8 @@
 <div class="row">
 	<%= form_for [:admins, @product] do |ca| %>
 	<div class="col-xs-3">
-    <%= attachment_image_tag @product, :image, :fill, 200, 160, fallback: "no_image.jpg" %>
-		<%= ca.attachment_field :image, class: "btn btn-primary" %>
+    <%= attachment_image_tag @product, :image, :fill, 200, 160, fallback: "no_image.jpg", id: :img_prev, class: "img_prev" %>
+		<%= ca.attachment_field :image, class: "btn btn-primary", id: :product_img %>
 	</div>
 	<div class="col-xs-8">
 	  <div class="form-group row">

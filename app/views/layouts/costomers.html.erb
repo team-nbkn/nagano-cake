@@ -21,8 +21,9 @@
           <% end %>
         </nav>
         <nav>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navs navbar-nav navbar-right">
             <% if costomer_signed_in? %>
+                <p style="color:#330000; padding-left:180px;"><strong>ようこそ、<%= current_costomer.last_name %>さん</strong></p>
                 <li><%= link_to ' マイページ', costomers_costomers_path(current_costomer), class:"btn-sm btn-danger" %>
                 </li>
                 <li><%= link_to ' 商品一覧', costomers_products_path, class:"btn-sm btn-danger" %>
