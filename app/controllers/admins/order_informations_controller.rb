@@ -4,7 +4,14 @@ class Admins::OrderInformationsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-  	@order_informations = OrderInformation.all
+      if params[:costomer_id]
+        @costomer = Costomer.find(params[:costomer_id])
+        @order_informations = @costomer.order_informations
+      elsif params[:created_at]
+        @order_informations = OrderInformation.where(created_at: Date.today.all_day)
+      else
+        @order_informations = OrderInformation.all
+      end
   end
 
   def show
